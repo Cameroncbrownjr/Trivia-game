@@ -7,51 +7,53 @@ var questionH3 = $("#question");
 var answerOptionsDiv = $("#answerOptions");
 var currentQuestionIndex;
 var numCorrect;
+var numIncorrect;
 var qList = [
     {
         question: "What's the capital of the United States?",
         answer: "Washington, DC",
         options: ["Washington, DC", "Philadelphia", "Washington State", "Orange monkey island"]
-    }
+    },
     {
         question: "Are ponies just small horses?",
         answer: "Definitely not",
         options: ["For sure", "Definitely not", "small evil horses", "Unsure"]
-    }
+    },
     {
         question: "If given the chance, will a cat sit in a box?",
         answer: "fits=sits",
         options: ["no", "what is cat?", "fits=sits", "How big/important is the box?"]
-    }
+    },
     {
         question: "What is the closest planet to the sun?",
         answer: "Mercury",
         options: ["Venus", "Pluto", "Uranus", "Mercury"]
-    }
+    },
     {
         question: "What is the best hockey team?",
         answer: "Flyers",
         options: ["Devils", "Flyers", "Penguins", "Buffalo Bills"]
-    }
+    },
     {
         question: "What does 2+2 equal?",
         answer: "4",
         options: ["2.5", "Fish", "4", "I didn't pass kindergarten"]
-    
+    },
+    {
         question: "The earth is _____?",
         answer: "round, dumbass",
         options: ["flat", "on fiyaaah", "square", "round, dumbass"]
-    }
+    },
     {
         question: "What color is the sky?",
         answer: "blue",
         options: ["blue", "red", "green", "purple"]
-    }
+    },
     {
         question: "How many fingers should 3 people have all together?",
         answer: "30",
         options: ["35", "40", "30", "29"]
-    }
+    },
     {
         question: "If given the chance to rate this quiz's quality, you'd say it's a ____? ",
         answer: "10/10s only",
@@ -81,22 +83,25 @@ function showQuestion() {
     questionH3.text(currentQuestion.question);
     // loop anwser through options to make buttons
     for (var i = 0; i < currentQuestion.options.length; i++) {
-        var newBtn = $("button");
+        var newBtn = $("<button>");
+        console.log(newBtn)
         newBtn.text(currentQuestion.options[i]);
+        console.log(currentQuestion.options[i])
         //attach click listner to button
         newBtn.on("click", function (e) {
             console.log(e.target.textContent)
             //handle correct/inc guess
             if (e.target.textContent === currentQuestion.answer) {
                 numCorrect++;
-                answerH4.text("You are so " + currentQuestion.answerOptionsDiv);
+                answerH4.text("You are Schmart");
             }
             else {
+                numIncorrect++;
                 answerH4.text("wrong");
             }
             //create next question button
             answerOptionsDiv.empty()
-            var nextBtn = $(#button);
+            var nextBtn = $("<button>");
             nextBtn.text("next Queston");
             nextBtn.on("click", showNextQuestion);
             answerOptionsDiv.append(nextBtn);
@@ -118,7 +123,6 @@ function showNextQuestion() {
 function gameOver() {
     gameDiv.hide();
     $("#mainMenu").text("you Scored " + Math.round(numCorrect / qList.length) + "%");
-    $("#mainMenu").text("");
     playBtn.text("Play again");
     mainMenudiv.show();
 }
