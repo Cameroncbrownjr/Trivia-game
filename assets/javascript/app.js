@@ -42,7 +42,7 @@ var qList = [
     {
         question: "The earth is _____?",
         answer: "round, dumbass",
-        options: ["flat", "on fiyaaah", "square", "round, dumbass"]
+        options: ["flat", "on fiyaaah", "square", "round, dumbass (also on fire)"]
     },
     {
         question: "What color is the sky?",
@@ -52,7 +52,7 @@ var qList = [
     {
         question: "How many fingers should 3 people have all together?",
         answer: "30",
-        options: ["35", "40", "30", "29"]
+        options: ["60", "40", "30", "29"]
     },
     {
         question: "If given the chance to rate this quiz's quality, you'd say it's a ____? ",
